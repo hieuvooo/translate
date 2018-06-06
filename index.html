@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="vi" prefix="og: http://ogp.me/ns#">
+<head>
+	<meta name="ROBOTS" content="index, follow" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bộ cuyển dổi Tiếq Việt</title>
+	<meta name="title" content="Bộ cuyển dổi Tiếq Việt theo PGS.TS Bùi Hiền" />
+	<meta name="description" content="Bộ cuyển dổi Tiếq Việt, cuyen doi tieq viet, bo chuyen doi tieng viet theo PGS.TS Bùi Hiền" />
+	
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/tieqviet.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var currentHash = location.hash;
+			if (currentHash != ""){
+				currentHash = currentHash.substring(1);
+				$("#txtInput").val(currentHash.replace(/_/g, " "));
+				$("#result").html(input(currentHash.replace(/_/g, " "))).stop().hide().fadeIn(200);
+			} else {
+				$("#result").html(input("Nhập Tiếng Việt..."));
+			}
+			
+			$("#txtInput").keyup(function(){
+				var val = $(this).val().trim();
+				if (val != ""){
+					$("#result").html(input(val)).stop().hide().fadeIn(200);
+					window.location.hash = val.replace(/ /g, "_");
+				}
+			});
+			$("#btnConvert").click(function(){
+				var val = $("#txtInput").val().trim();
+				if (val != ""){
+					$("#result").html(input(val)).stop().hide().fadeIn(200);
+					window.location.hash = val.replace(/ /g, "_");
+				} else {
+					alert("Vui lòng nhập Tiếng Việt !");
+					$("#txtInput").focus();
+				}
+			});
+		});
+	</script>
+	<style>
+		* {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+		body{font-family: arial, tahoma; font-size: 12px; color: #333;}
+		a{text-decoration: none; color: dimgray;}
+		a:hover{text-decoration: underline;}
+		.btn{display: inline-block; *display: inline; padding: 4px 12px; margin-bottom: 0; *margin-left: .3em; font-size: 14px; line-height: 20px; color: #333333; text-align: center; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; cursor: pointer; background-color: #f5f5f5; *background-color: #e6e6e6; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(to bottom, #ffffff, #e6e6e6); background-repeat: repeat-x; border: 1px solid #cccccc; *border: 0; border-color: #e6e6e6 #e6e6e6 #bfbfbf; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border-bottom-color: #b3b3b3; -webkit-border-radius: 4px;  -moz-border-radius: 4px; 	  border-radius: 4px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0); filter: progid:DXImageTransform.Microsoft.gradient(enabled=false); *zoom: 1; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); 	  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);}
+		.btn:hover, .btn:focus, .btn:active, .btn.active, .btn.disabled, .btn[disabled]{color: #333333; background-color: #e6e6e6; *background-color: #d9d9d9;}
+		.btn:active, .btn.active{background-color: #cccccc \9;}
+		.btn:first-child{*margin-left: 0;}
+		.btn:hover, .btn:focus{color: #333333; text-decoration: none; background-position: 0 -15px; -webkit-transition: background-position 0.1s linear; -moz-transition: background-position 0.1s linear; -o-transition: background-position 0.1s linear; transition: background-position 0.1s linear;}
+		.btn:focus{outline: thin dotted #333; outline: 5px auto -webkit-focus-ring-color; outline-offset: -2px;}
+		.btn.active, .btn:active{background-image: none; outline: 0; -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);}
+		.btn.disabled, .btn[disabled]{cursor: default; background-image: none; opacity: 0.65; filter: alpha(opacity=65); -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;}
+		.btn-success{color: #ffffff; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); background-color: #5bb75b; *background-color: #51a351; background-image: -moz-linear-gradient(top, #62c462, #51a351); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351)); background-image: -webkit-linear-gradient(top, #62c462, #51a351); background-image: -o-linear-gradient(top, #62c462, #51a351); background-image: linear-gradient(to bottom, #62c462, #51a351); background-repeat: repeat-x; border-color: #51a351 #51a351 #387038; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462', endColorstr='#ff51a351', GradientType=0); filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);}
+		.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .btn-success.disabled, .btn-success[disabled]{color: #ffffff; background-color: #51a351; *background-color: #499249;}
+		.btn-success:active, .btn-success.active{background-color: #408140 \9;}
+		.form-group{margin: 10px 0;}
+		
+		#wrapper{margin: 30px auto 15px auto; width: 95%; max-width: 600px;}
+		#txtInput{font-family: arial, tahoma; font-size: 14px; border: 1px solid #54a2bb; padding: 10px 45px 10px 10px; width: 100%; min-height: 100px; border-radius: 4px;}
+		#result{margin-top: 20px; padding: 10px 10px; background: lavender; font-size: 16px; font-weight: bold; border-radius: 3px; color: #000; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);}
+		
+		@media screen and (max-width: 800px){
+			input[type="text"], textarea, select{font-size: 16px !important;}
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>Bộ cuyển dổi Tiếq Việt</h1>
+		<div class="input">
+			<div class="form-group"><textarea id="txtInput" placeholder="Nhập Tiếng Việt..." spellcheck="false" autocomplete="off"></textarea></div>
+		</div>
+		
+		<div id="result" class="result"></div>
+	</div>
+</body>
+</html>
